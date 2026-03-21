@@ -1,6 +1,6 @@
 const CACHE_NAME = 'sudoku-cache-v1';
 const ASSETS = [
-  '/sudoku-ui',
+  '/sudoku-ui/',
   '/sudoku-ui/index.html',
   '/sudoku-ui/dist/index.css',
   '/sudoku-ui/dist/index.js',
