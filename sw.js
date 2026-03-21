@@ -1,11 +1,11 @@
 const CACHE_NAME = 'sudoku-cache-v1';
 const ASSETS = [
-  './',
-  './index.html',
-  './dist/index.css',
-  './dist/index.js',
-  './dist/sudokuSolver.js',
-  './dist/analyze.js',
+  '/sudoku-ui',
+  '/sudoku-ui/index.html',
+  '/sudoku-ui/dist/index.css',
+  '/sudoku-ui/dist/index.js',
+  '/sudoku-ui/dist/sudokuSolver.js',
+  'sudoku-ui/dist/analyze.js',
 ];
 self.addEventListener('install', (ev) => {
   ev.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
