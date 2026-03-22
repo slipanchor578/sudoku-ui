@@ -4,10 +4,10 @@ if ('serviceWorker' in navigator) {
 import { setupAnalyzeButton } from './analyze.js';
 const cells = document.querySelectorAll('.cell');
 const numberBtns = document.querySelectorAll('.number-btn');
+const continuousBtn = document.querySelector('.action-btn:nth-child(1)');
 const eraseBtn = document.querySelector('.action-btn:nth-child(2)');
 const clearBtn = document.querySelector('.action-btn:nth-child(3)');
 const analyzeBtn = document.querySelector('.action-btn:nth-child(4)');
-const continuousBtn = document.querySelector('.continuous-btn');
 let continuousMode = false;
 let currentNumber = null;
 continuousBtn.addEventListener('click', () => {
