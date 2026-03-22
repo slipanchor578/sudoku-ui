@@ -45,6 +45,7 @@ clearBtn.addEventListener('click', () => {
   cells.forEach((cell) => {
     cell.classList.add('cleared');
     cell.textContent = '';
+    cell.classList.remove('auto-filled', 'user-input');
     cell.classList.remove('selected', 'related');
     setTimeout(() => {
       cell.classList.remove('cleared');
