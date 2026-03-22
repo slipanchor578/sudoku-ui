@@ -114,6 +114,15 @@ body {
   border-top-width: 2px;
 }
 
+.user-input {
+  color: #000;
+}
+
+.auto-filled {
+  color: #5ecbff;
+  font-weight: bold;
+}
+
 .control-area {
   display: flex;
   flex-direction: column;

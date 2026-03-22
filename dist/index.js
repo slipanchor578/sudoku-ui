@@ -28,6 +28,7 @@ numberBtns.forEach((btn) => {
       if (!selected) return;
       if (selected.textContent !== '') return;
       selected.textContent = btn.textContent;
+      selected.classList.add('user-input');
     }
   });
 });
@@ -75,6 +76,7 @@ cells.forEach((cell, index) => {
       if (continuousMode && currentNumber) {
         if (cell.textContent === '') {
           cell.textContent = currentNumber;
+          cell.classList.add('user-input');
         }
       }
     });
