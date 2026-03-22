@@ -78,6 +78,11 @@ body {
   border: 2px solid #333;
 }
 
+.board.locked {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
 .cell {
   border: 1px solid #ccc;
   display: flex;
@@ -101,13 +106,30 @@ body {
 }
 
 .cell.selected {
-  background-color: #ffcc80;
+  background-color: #ffa726;
   color: #fff;
   z-index: 1;
 }
 
 .cell.related {
   background-color: #ffe8c6;
+}
+
+.cell.invalid {
+  animation: invalidFlash 0.25s ease;
+}
+
+@keyframes invalidFlash {
+  0% {
+    background-color: #ff5252;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.cell.same-number {
+  background-color: #ffcc80;
 }
 
 .cell:nth-child(3n + 1) {

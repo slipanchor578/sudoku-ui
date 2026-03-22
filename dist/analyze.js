@@ -18,18 +18,30 @@ export function writeGridToCells(cells, grid) {
     }
   });
 }
-export function setupAnalyzeButton(analyzeBtn, cells) {
+export function setupAnalyzeButton(
+  analyzeBtn,
+  cells,
+  actionButtons,
+  boardElement,
+) {
   analyzeBtn.addEventListener('click', () => {
-    const data = readGridFromCells(cells);
-    const solver = new SudokuSolver(data);
-    const ok = solver.solve();
-    if (!ok) {
-      alert('解が存在しません');
-      return;
+    actionButtons.forEach((btn) => (btn.disabled = true));
+    boardElement.classList.add('locked');
+    try {
+      const data = readGridFromCells(cells);
+      const solver = new SudokuSolver(data);
+      const ok = solver.solve();
+      if (!ok) {
+        alert('解が存在しません');
+        return;
+      }
+      const solved = solver.getGrid();
+      writeGridToCells(cells, solved);
+      alert(`Backtrack: ${solver.getBacktrackCount()}`);
+    } finally {
+      actionButtons.forEach((btn) => (btn.disabled = false));
+      boardElement.classList.remove('locked');
     }
-    const solved = solver.getGrid();
-    writeGridToCells(cells, solved);
-    alert(`Backtrack: ${solver.getBacktrackCount()}`);
   });
 }
 //# sourceMappingURL=analyze.js.map
