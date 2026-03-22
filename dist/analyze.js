@@ -10,7 +10,12 @@ export function readGridFromCells(cells) {
 export function writeGridToCells(cells, grid) {
   cells.forEach((cell, i) => {
     const v = grid[i];
+    const isUser = cell.classList.contains('user-input');
     cell.textContent = v === 0 ? '' : String(v);
+    cell.classList.remove('auto-filled');
+    if (!isUser && v !== 0) {
+      cell.classList.add('auto-filled');
+    }
   });
 }
 export function setupAnalyzeButton(analyzeBtn, cells) {
