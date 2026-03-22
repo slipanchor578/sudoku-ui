@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --block-border: #f7b733;
+}
+
 body {
   margin: 0;
   background: #f5f5f5;
@@ -22,9 +26,11 @@ body {
 .app {
   max-width: 480px;
   margin: 0 auto;
-  height: 100dvh;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 8px;
   gap: 8px;
 }
@@ -114,6 +120,42 @@ body {
   border-top-width: 2px;
 }
 
+/* --- 横方向の太線（1 行目、4 行目、7 行目） --- */
+.cell:nth-child(-n + 9) {
+  border-top: 3px solid var(--block-border);
+}
+
+.cell:nth-child(n + 28):nth-child(-n + 36) {
+  border-top: 3px solid var(--block-border);
+}
+
+.cell:nth-child(n + 55):nth-child(-n + 63) {
+  border-top: 3px solid var(--block-border);
+}
+
+/* 最下段（9 行目） */
+.cell:nth-child(n + 73) {
+  border-bottom: 3px solid var(--block-border);
+}
+
+/* --- 縦方向の太線（1 列目、4 列目、7 列目） --- */
+.cell:nth-child(9n + 1) {
+  border-left: 3px solid var(--block-border);
+}
+
+.cell:nth-child(9n + 4) {
+  border-left: 3px solid var(--block-border);
+}
+
+.cell:nth-child(9n + 7) {
+  border-left: 3px solid var(--block-border);
+}
+
+/* 最右列（9 列目） */
+.cell:nth-child(9n) {
+  border-right: 3px solid var(--block-border);
+}
+
 .user-input {
   color: #000;
 }
@@ -127,6 +169,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding-bottom: 48px;
 }
 
 .number-row {
@@ -153,19 +196,6 @@ body {
 .number-btn:active {
   transform: scale(0.9);
   transition: transform 0.06s ease-out;
-}
-
-.number-row.single {
-  grid-template-columns: 1fr;
-}
-
-.continuous-btn {
-  padding: 10px 0;
-  font-size: 1.2rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: #fff;
-  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.4, 1);
 }
 
 .continuous-btn.active {
